@@ -1,10 +1,10 @@
-Diagramme état / transition
-
-Classe mère State \
-AttackState et SearchState hérite de State \
-
-La StateMachine
-
+## Diagramme d'état
+```mermaid
+stateDiagram-v2
+    [*] --> scan
+    scan --> attack : agent.distance > 0
+    attack --> scan : agent.x == ennemi.x \nand \nagent.y == ennemi.y
+```
 
 ## Diagramme de classe
 
@@ -31,7 +31,7 @@ classDiagram
     }
 
     class SpecialAgent{
-        ...
+        +fsm
     }
 
 
@@ -66,5 +66,5 @@ sequenceDiagram
     StateMachine->>+State: self.__actualState.doAction() 
     State->>+AttackState: doAction()
 
-    AttackState-->>-StateMachine: setState(AttackState(...))
+    AttackState-->>-StateMachine: setState(ScanState(...))
 ```
