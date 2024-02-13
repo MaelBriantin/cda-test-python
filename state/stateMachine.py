@@ -1,10 +1,10 @@
-from State import State
+import state.interfaces as interfaces
 
 class StateMachine():
-    def __init__(self, state: State) -> None:
+    def __init__(self, state: interfaces.IState) -> None:
         self.__actualState = state
 
-    def setState(self, state: State) -> None:        
+    def setState(self, state: interfaces.IState) -> None:        
         self.__actualState = state
 
     def doAction(self) -> None :

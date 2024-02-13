@@ -1,0 +1,3 @@
+class IState():
+    def doAction(self):
+        ...
